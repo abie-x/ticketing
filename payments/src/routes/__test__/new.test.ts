@@ -6,7 +6,7 @@ import { OrderStatus } from '@aebsorg/common'
 
 jest.mock('../../stripe')
 
-it('returns 404 if the users is trying to purchase the order that doesnot exist', async () => {
+it('returns 404 if the users is trying to  purchase the order that doesnot exist', async () => {
     await request(app)
         .post('/api/payments')
         .set('Cookie', global.signin())
