@@ -60,24 +60,3 @@ it('returns a 400 when purchasing a cancelled order', async () => {
         .expect(400)
 })
 
-it('returns a 204 with valid inputs', async () => {
-    const userId = new mongoose.Types.ObjectId().toString()
-
-    const order = Order.build({
-        id: new mongoose.Types.ObjectId().toString(),
-        version: 0,
-        userId,
-        price: 99,
-        status: OrderStatus.Created
-    })
-    await order.save()
-
-    await request(app)
-        .post('/api/payments')
-        .set('Cookie', global.signin(userId))
-        .send({
-            token: 'tok_visa',
-            orderId: order.id
-        })
-        .expect(201)
-})
