@@ -15,7 +15,7 @@ app.use(json())
 app.use(
     cookieSession({
         signed: false,  //we are just disabling the encryption of the cookies cz jwt is already in encrypted format
-        secure: process.env.NODE_ENV !== 'test'    //for enabling a secured connection, we should be on an https connection
+        secure: false    //for enabling a secured connection, we should be on an https connection
     })
 )
 app.use(currentUser)    //in order to extract the jwt and put a currentUser property to see users are authenticated to view specific routes.
