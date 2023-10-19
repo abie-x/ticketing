@@ -5,7 +5,7 @@ const buildClient = ({req}) => {
     if(typeof window === 'undefined') {
         //we are on the server side
         return axios.create({
-            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+            baseURL: 'http://www.vyne.online/',
             headers: req.headers
         })
 
